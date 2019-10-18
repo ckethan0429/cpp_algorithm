@@ -1,0 +1,34 @@
+//
+//  main.cpp
+//  algorithm_033
+//
+//  Created by mac_ck on 18/10/2019.
+//  Copyright © 2019 cpp. All rights reserved.
+//
+
+#include <iostream>
+
+using namespace std;
+int main(){
+    int a[101];
+    int i, j,idx, n ,tmp, cnt=0;
+    cin >> n;
+    for(i=1; i<n+1; i++){
+        cin >> a[i];
+    }
+    
+    for(i=1; i<n;i++){
+        idx = i;
+        for(j=i+1;j<n+1;j++){
+            if(a[j] > a[idx]) idx = j;
+        }
+        tmp = a[i];
+        a[i] = a[idx];
+        a[idx] = tmp;
+    }
+    
+    for(i=1;i<n+1;i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
