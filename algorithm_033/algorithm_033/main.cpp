@@ -13,13 +13,13 @@ int main(){
     int a[101];
     int i, j,idx, n ,tmp, cnt=0;
     cin >> n;
-    for(i=1; i<n+1; i++){
+    for(i=0; i<n; i++){
         cin >> a[i];
     }
     
-    for(i=1; i<n;i++){
+    for(i=0; i<n-1;i++){
         idx = i;
-        for(j=i+1;j<n+1;j++){
+        for(j=i+1;j<n;j++){
             if(a[j] > a[idx]) idx = j;
         }
         tmp = a[i];
@@ -27,8 +27,11 @@ int main(){
         a[idx] = tmp;
     }
     
-    for(i=1;i<n+1;i++){
-        cout << a[i] << " ";
+    for(i=1; i<n; i++){
+        if(a[i-1] != a[i]) cnt++;
+        if (cnt==2) {
+            cout << a[i];
+            break;
+        }
     }
-    cout << endl;
 }
