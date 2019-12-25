@@ -7,18 +7,20 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main(int argc, const char * argv[]) {
+    freopen("data.txt", "rt", stdin);
     int n, k, i, j;
     int sum=0;
     int max_sum=-2147000000;
     scanf("%d %d",&n,&k);
-    int a[n];
+    vector<int> a(n);
     for(i=0; i<n; i++){
         scanf("%d",&a[i]);
     }
-    
+    /*
     for(i = 0; i < n-k+1; i++){
         cout << i << endl;
         for(j = i; j < i+k; j++){
@@ -30,4 +32,18 @@ int main(int argc, const char * argv[]) {
        
     }
     printf("%d\n", max_sum);
+     */
+    
+    for(i=0; i<k; i++){
+        sum += a[i];
+    }
+    max_sum = sum;
+    
+    for(i=k; i<n; i++){
+        sum += a[i] - a[i-k];
+        if(sum > max_sum) max_sum = sum;
+    }
+    
+    printf("%d\n", max_sum);
+    
 }
