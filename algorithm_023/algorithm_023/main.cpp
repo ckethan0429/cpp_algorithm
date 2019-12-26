@@ -11,27 +11,22 @@
 
 using namespace std;
 int main(int argc, const char * argv[]) {
-    /*
-     5 7 3 3 12 12 13 10 11
-     1 2 1 2 3  4  5  1  2
-    
-     cnt, cnt_max
-     */
-    int i, n;
-    int cnt=1, cnt_max=-2147000000;
-    scanf("%d", &n);
-    vector<int> a(n);
-    for(i=0; i<n; i++){
-        scanf("%d", &a[i]);
-    }
-    
-    for(i=1; i<n; i++){
-        if(a[i-1] <= a[i]) cnt++;
-        else cnt = 1;
-        
-        if(cnt> cnt_max) cnt_max = cnt;
-    }
-    
-    printf("%d\n",cnt_max);
+    freopen("data.txt", "rt", stdin);
+    int n, i, pre, now, cnt, max;
+        scanf("%d", &n);
+        scanf("%d", &pre);
+        cnt=1;
+        max=1;
+        for(i=2; i<=n; i++){
+            scanf("%d", &now);
+            if(now>=pre){
+                cnt++;
+                if(cnt>max) max=cnt;
+            }
+            else cnt=1;
+            pre=now;
+        }
+        printf("%d\n", max);
+        return 0;
     
 }
