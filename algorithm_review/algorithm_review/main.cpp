@@ -322,6 +322,32 @@ int main(int argc, const char * argv[]) {
         }
     }
      */
+    
+    /*
+     33번 버블
+     int n, i, j, tmp;
+     scanf("%d", &n);
+     vector<int> arr(n);
+     
+     for(i = 0; i < n; i++){
+         scanf("%d", &arr[i]);
+     }
+     
+     for(i = 0; i < n-1; i++){
+         for(j = 0; j < n-i-1; j++){
+             if (arr[j] > arr[j+1]){
+                 tmp = arr[j+1];
+                 arr[j+1] = arr[j];
+                 arr[j] = tmp;
+             }
+         }
+     }
+     
+     for(i = 0; i < n; i++){
+         printf("%d ", arr[i]);
+     }
+     */
+    
     int n, i, j, tmp;
     scanf("%d", &n);
     vector<int> arr(n);
@@ -332,7 +358,7 @@ int main(int argc, const char * argv[]) {
     
     for(i = 0; i < n-1; i++){
         for(j = 0; j < n-i-1; j++){
-            if (arr[j] > arr[j+1]){
+            if (arr[j] > 0 &&  arr[j+1] < 0){
                 tmp = arr[j+1];
                 arr[j+1] = arr[j];
                 arr[j] = tmp;
@@ -343,7 +369,6 @@ int main(int argc, const char * argv[]) {
     for(i = 0; i < n; i++){
         printf("%d ", arr[i]);
     }
-    
     
     
 }
