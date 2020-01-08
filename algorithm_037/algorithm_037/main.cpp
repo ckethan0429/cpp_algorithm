@@ -7,39 +7,28 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 int C[20];
 int main(){
-    int i, j, pos, a, s, n;
-    cin >> s >> n;
-    
-    for(i=0; i<n; i++){
-        cin >> a;
-        pos = -1;
-        for(j=0; j<s; j++){
-            if(a == C[j]){
-                pos = j;
-                
-            }
-        }
-        
-        
-        // Cache Miss 상황
-        if(pos == -1){
-            for(j=s-1; j>=1; j--){
-                C[j] = C[j-1];
-            }
+    int s, n, a, i, j, pos;
+    scanf("%d %d", &s, &n);
+    for(i=1; i<=n; i++){
+        scanf("%d", &a);
+        pos=-1;
+        for(j=0; j<s; j++) if(C[j]==a) pos=j;
+        if(pos==-1){
+            for(j=s-1; j>=1; j--) C[j]=C[j-1];
         }
         else{
-            for(j=pos; j>=1; j--){
-                C[j] = C[j-1];
-            }
+            for(j=pos; j>=1; j--) C[j]=C[j-1];
         }
-        C[0] = a;
-        
+        C[j]=a;
     }
-    
-    for (i=0; i<s; i++){
-        cout << C[i] << " ";
-    }
+    for(i=0; i<s; i++) printf("%d ", C[i]);
+    return 0;
 }
+
+
+

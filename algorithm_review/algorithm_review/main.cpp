@@ -13,7 +13,7 @@
 #include <typeinfo>
 
 using namespace std;
-
+int C[20];
 int digit_sum(int x){
     int tmp = x;
     int sum = 0;
@@ -348,28 +348,49 @@ int main(int argc, const char * argv[]) {
      }
      */
     
-    int n, i, j, tmp;
-    scanf("%d", &n);
-    vector<int> arr(n);
+    /*
+     34번
+     int n, i, j, tmp;
+     scanf("%d", &n);
+     vector<int> arr(n);
+     
+     for(i = 0; i < n; i++){
+         scanf("%d", &arr[i]);
+     }
+     
+     for(i = 0; i < n-1; i++){
+         for(j = 0; j < n-i-1; j++){
+             if (arr[j] > 0 &&  arr[j+1] < 0){
+                 tmp = arr[j+1];
+                 arr[j+1] = arr[j];
+                 arr[j] = tmp;
+             }
+         }
+     }
+     
+     for(i = 0; i < n; i++){
+         printf("%d ", arr[i]);
+     }
+     
+     
+     */
     
-    for(i = 0; i < n; i++){
-        scanf("%d", &arr[i]);
-    }
-    
-    for(i = 0; i < n-1; i++){
-        for(j = 0; j < n-i-1; j++){
-            if (arr[j] > 0 &&  arr[j+1] < 0){
-                tmp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = tmp;
-            }
+    int s, n, a, i, j, pos;
+    scanf("%d %d", &s, &n);
+    for(i=1; i<=n; i++){
+        scanf("%d", &a);
+        pos=-1;
+        for(j=0; j<s; j++) if(C[j]==a) pos=j;
+        if(pos==-1){
+            for(j=s-1; j>=1; j--) C[j]=C[j-1];
         }
+        else{
+            for(j=pos; j>=1; j--) C[j]=C[j-1];
+        }
+        C[j]=a;
     }
-    
-    for(i = 0; i < n; i++){
-        printf("%d ", arr[i]);
-    }
-    
+    for(i=0; i<s; i++) printf("%d ", C[i]);
+    return 0;
     
 }
 

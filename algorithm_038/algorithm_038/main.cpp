@@ -12,24 +12,25 @@
 
 using namespace std;
 int main(){
-    int i, j, n, pos;
-    cin >> n;
-    vector<int> is(n+1);
-    vector<int> os(n+1);
-
+    int n, i, j, pos;
+    scanf("%d", &n);
+    vector<int> a(n+1);
+    vector<int> b(n+1);
     
-    for (i=1; i<=n; i++){
-        cin >> is[i];
+    for(i=1; i<=n; i++){
+        scanf("%d", &a[i]);
     }
     
     for(i=n; i>=1; i--){
         pos = i;
-        for(j=1; j<=is[i]; j++){
-            os[pos] = os[pos+1];
+        for(j=1; j<=a[i]; j++){
+            b[pos] = b[pos+1];
             pos++;
         }
-        os[pos] = i;
+        b[pos] = i;
     }
     
-    for (i=1; i<=n; i++) cout << os[i] << " ";
+    for(i=1; i<=n; i++){
+        printf("%d ", b[i]);
+    }
 }
