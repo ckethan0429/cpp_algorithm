@@ -38,20 +38,31 @@ bool desc(int a, int b){ return a > b; }
  return 0;
 
  */
-int c[20];
 int main(){
-    int s, n, a, i, j, pos;
-    scanf("%d %d", &s,&n);
-    for(i=0; i<n; i++){
-        scanf("%d", &a);
-        pos = -1;
-        for(j=0; j<s; j++) if(c[j] == a) pos = j;
-        if(pos == -1){
-            for(j=s-1; j>=1; j--) c[j] = c[j-1];
+    int n, m, p1 =0, p2=0;
+    scanf("%d",&n);
+    vector<int> a(n);
+    for(auto &ele : a) cin >> ele;
+    scanf("%d",&m);
+    vector<int> b(m);
+    for(auto &ele : b) cin >> ele;
+    
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    
+    for(auto &ele : a) cout << ele << " ";
+    cout << endl;
+    for(auto &ele : b) cout << ele << " ";
+    cout << endl;
+    while(p1<n && p2<m){
+        if(a[p1] == b[p2]){
+            printf("%d ",a[p1]);
+            p1++;
+            p2++;
         }
         else{
-            for(j=pos; j>=1; j--) c[j] = c[j-1];
+            if(a[p1] < b[p2]) p1++;
+            else p2++;
         }
-        c[j] = a;
     }
 }

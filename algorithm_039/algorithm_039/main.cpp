@@ -27,5 +27,58 @@ int main(){
 
     for(i=1; i<p3; i++) cout << c[i] << " ";
     
+    /* 나의풀이
+     
+     int n, m, i, j=0, k=0, pos=0;
+     scanf("%d", &n);
+     vector<int> a(n);
+     for(i=0; i<n; i++){
+         scanf("%d", &a[i]);
+     }
+     
+     scanf("%d", &m);
+     vector<int> b(m);
+     for(i=0; i<m; i++){
+         scanf("%d", &b[i]);
+     }
+     
+     vector<int> c(n+m);
+     
+     if(n <= m){
+         while(k <n){
+             if(a[k] <= b[j]){
+                 c[pos++] = a[k++];
+             }
+             else{
+                 c[pos++] = b[j++];
+             }
+         }
+         if(j <= m){
+             for(i = j; i < m; i++){
+                 c[pos++] = b[j++];
+             }
+         }
+     }
+     else{
+         while(j < m){
+             if(a[k] <= b[j]){
+                 c[pos++] = a[k++];
+             }
+             else{
+                 c[pos++] = b[j++];
+             }
+         }
+         if(k <= n){
+             for(i = k; i < n; i++){
+                 c[pos++] = a[k++];
+             }
+         }
+     }
+     for(auto& ele : c) cout << ele << " ";
+     cout << endl;
+
+     
+     return 0;
+     */
 
 }
